@@ -1,0 +1,8 @@
+ <%provide(:title,'AllTweets')%>
+ <h2>全てのtweet</h2>
+ <section class="all-tweets">
+   <ol class="tweets">
+     <%= render @tweets %>
+   </ol>
+   <%= will_paginate %>
+ </section>

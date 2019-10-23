@@ -1,0 +1,8 @@
+<li id="tweet-<%= tweet.id %>">
+  <span class="user"><%= link_to tweet.user.name, tweet.user %></span>
+  <span class="content"><%= tweet.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+  </span>
+  <span><%= link_to('削除', tweet, method: :delete) %></span>
+</li>

@@ -1,4 +1,22 @@
-<div class="center jumbotron">
+ <% if logged_in? %>
+ <div class="row">
+   <aside class="col-md-4">
+     <section class="user-info">
+       <h2><%= current_user.name %></h2>
+       <span><%= link_to "view my profile", current_user %></span>
+       <span><%= pluralize(current_user.tweets.count, "tweet") %></span>
+     </section>
+     <section class="tweet-form"><%= render 'shared/tweet_form' %></section>
+   </aside>
+ <div class="col-md-8">
+   <h2>tweets</h2>
+    <ol class="tweets"><%= render @tweets %></ol>
+    <%= will_paginate @tweets %>
+  </div>
+ <% else %>
+ <div class="center jumbotron">
   <h2 class="welcom-message">Welcom to the TweetApp</h2>
   <%= link_to 'Sign up now!', 'signup', class: "btn btn-lg btn-primary sign-up" %>
+  </div>
 </div>
+<% end %>

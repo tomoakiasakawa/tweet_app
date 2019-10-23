@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tweets/index'
   root 'statice_pages#home'
   get '/help', to: 'statice_pages#help'
   get '/about', to: 'statice_pages#about'
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users, except: :new
+  resources :tweets, only: %i(index create destroy)
 end

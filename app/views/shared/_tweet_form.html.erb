@@ -1,0 +1,7 @@
+<%= form_with(model: @tweet, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "今の思いをつぶやこう" %>
+    </div>
+    <%= f.submit "つぶやく", class: "btn btn-primary" %>
+  <% end %>
